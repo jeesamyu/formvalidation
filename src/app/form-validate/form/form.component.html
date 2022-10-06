@@ -1,0 +1,85 @@
+
+      <!-- {{model | json}} -->
+
+<body>
+    <div class="container">
+    
+    <!-- Form fillup -->
+        <div [hidden]="submitted">
+            <h1 style="font-weight: bold; text-align:center;">VALIDATION FORM</h1>
+            <form (ngSubmit)="onSubmit()" #samyuForm="ngForm">
+        
+    
+    
+    
+    <!-- first name -->
+    <div class="form-group">
+        <label for="fname">Frist Name :</label>
+        <input type="text" class="form-control" id="fname" required [(ngModel)]="model.f_name" name="fname" #fname="ngModel">
+        <div [hidden]="fname.valid || fname.pristine" class="alert alert-danger">First Name Can't Be Empty</div>
+    </div>
+    
+    <!-- last name -->
+    <div class="form-group">
+        <label for="lname">Last Name :</label>
+        <input type="text" class="form-control" id="lname" required [(ngModel)]="model.l_name" name="lname" #lname="ngModel">
+        <div [hidden]="lname.valid || lname.pristine" class="alert alert-danger">Last Name Can't Be Empty</div>
+    </div>
+    
+    <!-- Gender dropdown -->
+    <div class="form-group">
+        <label for="gender">Select Gender :</label>
+        <select class="form-control" id="gender" required [(ngModel)]="model.Gender" name="gender" #gender="ngModel">
+            <option *ngFor="let Gen of Gender" [value]="Gen">{{Gen}}</option>
+        </select>
+    </div>
+    
+    <!-- Email -->
+    <div class="form-group">
+        <label for="emailbox">Enter Your Email :</label>
+        <input type="email" class="form-control" id="emailbox" required [(ngModel)]="model.Email" name="emailbox" #emailbox="ngModel">
+        <div [hidden]="emailbox.valid || emailbox.pristine" class="alert alert-danger">Invalid Email / Can't Be Empty</div>
+    </div>
+    
+    <div class="form-group">
+        <label for="phnumber">Phone Number :</label>
+        <input type="tel" class="form-control" id="phnumber" required [(ngModel)]="model.phone_number" name="phnumber" #phnumber="ngModel">
+        <div [hidden]="phnumber.valid || phnumber.pristine" class="alert alert-danger">Invalid Phone Number</div>
+    </div>
+    
+    <button type="submit" class="btn btn-success" [disabled]="!samyuForm.form.valid">Submit</button>
+    <button type="button" class="btn btn-success ms-2" (click)="newdata(); samyuForm.reset()">Reset</button>
+        </form>
+    </div>
+    
+    <div class="sub" [hidden]="!submitted">
+        <h2 style="font-weight: bold; text-align:center;">Submitted successfully!</h2>
+        <div class="row" style="margin-top:100px;">
+            <div class="col-sm-3">First Name :</div>
+            <div class="col-sm-9">{{model.f_name}}</div>
+        </div>
+    
+        <div class="row" style="margin-top:30px;">
+            <div class="col-sm-3">Last Name :</div>
+            <div class="col-sm-9">{{model.l_name}}</div>
+        </div>
+    
+        <div class="row" style="margin-top:30px;">
+            <div class="col-sm-3">Gender :</div>
+            <div class="col-sm-9">{{model.Gender}}</div>
+        </div>
+    
+        <div class="row" style="margin-top:30px;">
+            <div class="col-sm-3">Email :</div>
+            <div class="col-sm-9">{{model.Email}}</div>
+        </div>
+    
+        <div class="row" style="margin-top:30px;">
+            <div class="col-sm-3">Phone :</div>
+            <div class="col-sm-9">{{model.phone_number}}</div>
+        </div>
+        <button type="button" class="btn btn-success" style="margin-top:50px; width:60px; margin-left:45%; font-weight:bold;" (click)="submitted=false">Edit</button>
+    </div>
+    </div>
+    </body>
+    <!-- Bootstrap JavaScript Libraries -->

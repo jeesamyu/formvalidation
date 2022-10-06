@@ -1,0 +1,49 @@
+.ng-invalid:not(form)  {
+    border-left: 5px solid #a94442;
+  }
+
+.ng-valid[required], .ng-valid.required  {
+    border-left: 5px solid #42A948;
+  }
+  
+  
+
+  .container{
+    background: #ffffff;
+    width: 600px;
+    height:800px;
+    margin-top:10px ;
+    box-shadow: 5px 5px 10px 10px black;
+    line-height: 1.5;
+
+  }
+
+button{
+    margin-top:20px;
+    margin-left:135px;
+}
+
+body{
+    background-image: linear-gradient(45deg , #f9a92b ,#fbcc4d);
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    position: absolute;
+  }
+
+.col-sm-3 , .col-sm-9{
+    font-size: 20px;
+    margin-left: 50px;
+
+}
+.col-sm-3{
+    text-decoration: underline;
+}
+
+.col-sm-9{
+    color:#42A948;
+}
+h2{
+    text-shadow:5px 5px 10px #ee3507;
+    text-decoration: underline;
+}
